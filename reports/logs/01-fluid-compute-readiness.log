@@ -1,0 +1,120 @@
+repo=exp-fluid-webgpu-core
+scenario=Fluid Compute Readiness
+url_search=(default)
+captured_at=2026-05-20T15:41:37.279Z
+browser=Chromium 147.0.7727.15
+headless=true
+meta_scenario=fluid-webgpu-core-readiness
+status=success
+
+[page-console]
+(none)
+
+[harness-logs]
+./reports/logs/01-fluid-compute-readiness.log
+
+[result-json]
+{
+  "meta": {
+    "repo": "exp-fluid-webgpu-core",
+    "commit": "63e866a",
+    "timestamp": "2026-05-20T15:41:35.287Z",
+    "owner": "ai-webgpu-lab",
+    "track": "blackhole",
+    "scenario": "fluid-webgpu-core-readiness",
+    "notes": "particleCount=8192; visibleParticles=160; grid=128x96; workgroupSize=128; pressureIterations=18; tileCount=32; atomicsBins=48; sharedMemoryKB=64; avgDispatchMs=0.2028; p95DispatchMs=0.3; pressureSolveMs=0.1185; divergenceErrorPct=0.1222; maxAtomicSamples=316; maxBinPressure=0.6589; backend=webgpu; fallback=false; automation=playwright-chromium",
+    "capture_context": {
+      "tool": "playwright-chromium",
+      "browser_name": "Chromium",
+      "browser_version": "147.0.7727.15",
+      "headless": true,
+      "captured_at": "2026-05-20T15:41:37.279Z",
+      "captured_by": "codex"
+    },
+    "capture_scenario_id": "01-fluid-compute-readiness"
+  },
+  "environment": {
+    "browser": {
+      "name": "Chrome",
+      "version": "147.0.7727.15"
+    },
+    "os": {
+      "name": "Linux",
+      "version": "unknown"
+    },
+    "device": {
+      "name": "Linux x86_64",
+      "class": "desktop-high",
+      "cpu": "16 threads",
+      "memory_gb": 32,
+      "power_mode": "unknown"
+    },
+    "gpu": {
+      "adapter": "navigator.gpu available",
+      "required_features": [
+        "shader-f16",
+        "timestamp-query"
+      ],
+      "limits": {
+        "maxComputeWorkgroupSizeX": 256,
+        "maxStorageBufferBindingSize": 134217728,
+        "maxBindGroups": 4
+      }
+    },
+    "backend": "webgpu",
+    "fallback_triggered": false,
+    "worker_mode": "main",
+    "cache_state": "warm"
+  },
+  "workload": {
+    "kind": "compute",
+    "name": "fluid-webgpu-core-readiness",
+    "input_profile": "8192-particle-128x96-grid-fixed-seed",
+    "model_id": "deterministic-fluid-pressure-solve-v1"
+  },
+  "metrics": {
+    "common": {
+      "time_to_interactive_ms": 1459.6,
+      "init_ms": 1277.3,
+      "success_rate": 1,
+      "peak_memory_note": "32 GB reported by browser; sharedMemory=64 KB",
+      "error_type": ""
+    },
+    "compute": {
+      "bodies_or_particles": 8192,
+      "workgroup_size": 128,
+      "steps_per_sec": 1014.64,
+      "integration_ms": 1277.3,
+      "avg_dispatch_ms": 0.2028,
+      "p95_dispatch_ms": 0.3,
+      "pressure_solve_ms": 0.1185,
+      "divergence_error_pct": 0.1222,
+      "atomics_contention_note": "tile-local pressure bins kept synthetic atomics samples at 316 (7.71%).",
+      "thermal_note": "No sustained throttling across the fixed deterministic pressure-solve window."
+    }
+  },
+  "status": "success",
+  "artifacts": {
+    "raw_logs": [
+      "./reports/logs/01-fluid-compute-readiness.log"
+    ],
+    "deploy_url": "https://ai-webgpu-lab.github.io/exp-fluid-webgpu-core/",
+    "renderer_adapter": {
+      "id": "deterministic-three-style",
+      "label": "Deterministic Three-style",
+      "version": "1.0.0",
+      "capabilities": [
+        "scene-load",
+        "frame-pace",
+        "fallback-record"
+      ],
+      "backendHint": "synthetic",
+      "isReal": false,
+      "status": "deterministic",
+      "message": "Deterministic harness — replace by registering a real renderer."
+    },
+    "screenshots": [
+      "./reports/screenshots/01-fluid-compute-readiness.png"
+    ]
+  }
+}
